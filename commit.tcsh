@@ -12,7 +12,7 @@ set date=(`grep '^Date:   ' m6e.msg | sed 's/Date:   //'`)
 
 # Make commit
 set subject=(`head -1 new.msg`)
-echo Commiting: $author, $date, $subject
+echo Commiting: "$author", "$date", "$subject"
 git commit --author="$author" --date="$date" --file=new.msg
 
 rm new.msg m6e.msg
