@@ -5,7 +5,7 @@
 # Extract last log message
 (cd MOM6-examples/ ; git log -n 1 ) > m6e.msg
 # Create new log message
-(tail +5 m6e.msg | sed 's/^    //') > new.msg
+(tail -n +5 m6e.msg | sed 's/^    //') > new.msg
 # Extract author and date
 set author=(`grep '^Author: ' m6e.msg | sed 's/Author: //'`)
 set date=(`grep '^Date:   ' m6e.msg | sed 's/Date:   //'`)
