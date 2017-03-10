@@ -7,8 +7,8 @@ set tool_dir = $0:h
 if (! -x .git) exit 999
 
 # Figure the range of commits to update
-set current_commit = (`git diff MOM6-examples | tail -1 | awk '{print $3}'`)
-set first_commit = (`git diff MOM6-examples | tail -2 | head -1 | awk '{print $3}'`)
+set current_commit = (`git diff MOM6-examples | tail -n -1 | awk '{print $3}'`)
+set first_commit = (`git diff MOM6-examples | tail -n -2 | head -n -1 | awk '{print $3}'`)
 echo $first_commit .. $current_commit
 
 (cd MOM6-examples; git checkout dev/master)
